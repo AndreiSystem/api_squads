@@ -2,7 +2,6 @@ from model.framework import Framework
 from model.db import Db
 from model.linguagem_squad import Linguagem
 
-
 class Programador:
     def __init__(self, nome, framework: Framework = None, db: Db = None, linguagem: Linguagem = None,
                  id_db=None, id_framework=None, id_linguagem=None, id=None):
