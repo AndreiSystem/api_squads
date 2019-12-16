@@ -25,23 +25,23 @@ class ProgramadoresController(Resource):
             programador_id = self.dao.inserir(programador)
             programador = self.dao.buscar_por_id(programador_id)
             return programador
-        
+
         elif nome.lower() == 'mateus' and id_db == 2 and id_framework == 2 and id_linguagem == 2:
             programador = Programador(
                 nome.lower(), id_framework=id_framework, id_db=id_db, id_linguagem=id_linguagem)
             programador_id = self.dao.inserir(programador)
             programador = self.dao.buscar_por_id(programador_id)
             return programador
-        
+
         elif nome.lower() == 'tiago' and id_db == 3 and id_framework == 3 and id_linguagem == 3:
             programador = Programador(
                 nome.lower(), id_framework=id_framework, id_db=id_db, id_linguagem=id_linguagem)
             programador_id = self.dao.inserir(programador)
             programador = self.dao.buscar_por_id(programador_id)
             return programador
-        
+
         else:
-            return 'Combinação Inválida'        
+            return 'Combinação Inválida'
 
     def put(self, id):
         id_body = request.json['id']
@@ -59,5 +59,6 @@ class ProgramadoresController(Resource):
         return programador
 
     def delete(self, id):
+        programador = self.dao.buscar_por_id(id)
         self.dao.deletar(id)
-        return 'Deletado Meu'
+        return f'{programador["nome"]} deletado'
