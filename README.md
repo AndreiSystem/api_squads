@@ -14,6 +14,7 @@ Usando as estruturas( Lista, Tuplas, Dicionarios), Classes, Metodos
 Deve ser feito apenas no console - Usar esquema de cores.
 ---------------------------------------------------------------------------------------------------- API
 
+
 Criar uma API para integração da solução das Squads (Criada no trabalho anterior)
 1-Api deve persistir os dados caso o conjunto programador, linguagem, framework e banco de dados seja verdadeiro
 2-Api deve ter rotas para retornar os programadores e um por id
