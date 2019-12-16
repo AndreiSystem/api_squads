@@ -19,7 +19,14 @@ class ProgramadoresController(Resource):
         id_framework = request.json['id_framework']
         id_linguagem = request.json['id_linguagem']
 
+        if self.dao.existe_nome(nome):
+            return "Usuário já existe!"
+
+        if len(self.dao.listar()) == 3:
+            return "Lista completa!"
+
         if nome.lower() == 'nicole' and id_db == 1 and id_framework == 1 and id_linguagem == 1:
+
             programador = Programador(
                 nome.lower(), id_framework=id_framework, id_db=id_db, id_linguagem=id_linguagem)
             programador_id = self.dao.inserir(programador)

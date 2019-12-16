@@ -73,3 +73,13 @@ class ProgramadorDao(BaseDao):
         model_programador = Programador(
             tupla[0], framework.__dict__, db.__dict__, linguagem.__dict__)
         return model_programador.__dict__
+
+    def existe_nome(self, nome):
+        comando_sql_buscar_id = f"""
+                                    SELECT * FROM programadores WHERE nome LIKE '%{nome}%' LIMIT 1
+                                """
+        verific = super().buscar_por_id(comando_sql_buscar_id)
+        if verific:
+            return True
+        else:
+            return False
