@@ -1,3 +1,5 @@
+
+"""
 from dao.base_dao import BaseDao
 from model.db import Db
 
@@ -10,5 +12,4 @@ class DbDao(BaseDao):
             model_db = Db(l[0],l[1])
             lista.append(model_db)
         return lista
-    
-    
+"""
