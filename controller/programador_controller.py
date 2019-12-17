@@ -19,6 +19,9 @@ class ProgramadoresController(Resource):
         id_framework = request.json['id_framework']
         id_linguagem = request.json['id_linguagem']
 
+        programador = Programador(
+            nome.lower(), id_framework=id_framework, id_db=id_db, id_linguagem=id_linguagem)
+
         if self.dao.existe_nome(nome):
             return "Usuário já existe!"
 
@@ -26,23 +29,16 @@ class ProgramadoresController(Resource):
             return "Lista completa!"
 
         if nome.lower() == 'nicole' and id_db == 1 and id_framework == 1 and id_linguagem == 1:
-
-            programador = Programador(
-                nome.lower(), id_framework=id_framework, id_db=id_db, id_linguagem=id_linguagem)
             programador_id = self.dao.inserir(programador)
             programador = self.dao.buscar_por_id(programador_id)
             return programador
 
         elif nome.lower() == 'mateus' and id_db == 2 and id_framework == 2 and id_linguagem == 2:
-            programador = Programador(
-                nome.lower(), id_framework=id_framework, id_db=id_db, id_linguagem=id_linguagem)
             programador_id = self.dao.inserir(programador)
             programador = self.dao.buscar_por_id(programador_id)
             return programador
 
         elif nome.lower() == 'tiago' and id_db == 3 and id_framework == 3 and id_linguagem == 3:
-            programador = Programador(
-                nome.lower(), id_framework=id_framework, id_db=id_db, id_linguagem=id_linguagem)
             programador_id = self.dao.inserir(programador)
             programador = self.dao.buscar_por_id(programador_id)
             return programador
@@ -68,4 +64,4 @@ class ProgramadoresController(Resource):
     def delete(self, id):
         programador = self.dao.buscar_por_id(id)
         self.dao.deletar(id)
-        return f'{programador["nome"]} deletado'
+        return f'{programador["_Programador__nome"]} deletado'
